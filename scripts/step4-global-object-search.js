@@ -14,7 +14,7 @@ function renderObjectResults(items) {
   }
   items.forEach(item => {
     const li = document.createElement("li");
-    li.textContent = `${item.app} | ${item.action} | Win: ${item.windows} | Mac: ${item.mac}`;
+    li.textContent = `${item.app} | ${item.action} | Win: ${item.windows} | Mac: ${item.mac} | Author: ${item.author}`;
     searchResults.appendChild(li);
   });
 }
