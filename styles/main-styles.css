@@ -83,12 +83,6 @@ h1::after {
   margin-top: 10px;
 }
 
-/* ── Search Bar ────────────────────────────── */
-.search-wrapper,
-body>input,
-body>button {
-  /* We'll target them directly since HTML uses bare elements */
-}
 
 #searchInput {
   display: block;
@@ -106,8 +100,6 @@ body>button {
   outline: none;
   border-radius: var(--radius) 0 0 var(--radius);
   transition: border-color var(--transition), box-shadow var(--transition);
-  /* Override inline flow: make them sit together */
-  vertical-align: middle;
 }
 
 #filterButton {
