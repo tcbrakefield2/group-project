@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Barlow+Condensed:wght@400;600;700;900&display=swap');
+ 
+/* ── Variables ─────────────────────────────── */
+:root {
+  --bg:        #0d0f12;
+  --surface:   #161a1f;
+  --surface-2: #1e2329;
+  --border:    #2c3340;
+  --accent:    #00e5a0;
+  --accent-dim:#00b37a;
+  --warn:      #f5a623;
+  --text:      #d4dbe8;
+  --muted:     #5e6b7d;
+  --white:     #ffffff;
+ 
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+ 
+  --radius: 4px;
+  --transition: 0.18s ease;
+}
+ 
+/* ── Reset ─────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+/* ── Base ──────────────────────────────────── */
+html {
+  font-size: 16px;
+  background: var(--bg);
+  color: var(--text);
+}
+ 
+body {
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  padding: 0 0 80px;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(0, 229, 160, 0.08) 0%, transparent 60%),
+    var(--bg);
+  animation: fadeIn 0.5s ease both;
+}
+ 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+ 
+/* ── Header ────────────────────────────────── */
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 52px 40px 10px;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+}
+ 
+h1::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin-top: 10px;
+}
+ 
+/* ── Search Bar ────────────────────────────── */
+.search-wrapper,
+body > input,
+body > button {
+  /* We'll target them directly since HTML uses bare elements */
+}
+ 
+#searchInput {
+  display: block;
+  margin: 32px 40px 0;
+  width: calc(100% - 80px - 80px); /* leave room for button */
+  max-width: 620px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-right: none;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 13px 18px;
+  outline: none;
+  border-radius: var(--radius) 0 0 var(--radius);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  /* Override inline flow: make them sit together */
+  vertical-align: middle;
+}
+ 
+#searchInput::placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+ 
+#searchInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(0, 229, 160, 0.12);
+}
+ 
+#searchButton {
+  display: inline-block;
+  vertical-align: middle;
+  /* Align with the input */
+  margin-top: 32px;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 22px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  line-height: 1.45; /* match input height */
+}
+ 
+#searchButton:hover {
+  background: var(--accent-dim);
+}
+ 
+#searchButton:active {
+  transform: scale(0.97);
+}
+ 
+/* ── Status Message ────────────────────────── */
+#searchMessage {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 14px 40px 0;
+}
+ 
+/* ── Results List ──────────────────────────── */
+#searchResults {
+  list-style: none;
+  margin: 24px 40px 0;
+  display: grid;
+  gap: 6px;
+}
+ 
+#searchResults li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.6;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  animation: slideIn 0.2s ease both;
+}
+ 
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+ 
+#searchResults li:hover {
+  border-left-color: var(--accent);
+  background: var(--surface-2);
+  transform: translateX(3px);
+}
+ 
+/* "No results" state */
+#searchResults li:only-child:not(:hover) {
+  border-left-color: var(--warn);
+  color: var(--muted);
+  font-style: italic;
+}
+ 
+/* ── Responsive ────────────────────────────── */
+@media (max-width: 600px) {
+  h1 {
+    padding: 32px 20px 10px;
+    font-size: 2.2rem;
+  }
+ 
+  #searchInput {
+    margin: 24px 20px 0;
+    width: calc(100% - 40px - 68px);
+  }
+ 
+  #searchButton {
+    margin-top: 24px;
+  }
+ 
+  #searchMessage,
+  #searchResults {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
