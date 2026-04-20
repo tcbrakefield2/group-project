@@ -1,7 +1,3 @@
-This README is designed to look professional while clearly ticking off every requirement for your submission. It highlights the collaborative nature of the project and the technical implementation of the Fetch API.
-
------
-
 # ⌨️ ShortcutQuest: The Universal Key-Finder
 
 A collaborative web application designed to help users quickly search and filter through a comprehensive database of unique keyboard shortcuts. This project was built as part of a team-based challenge to demonstrate proficiency in asynchronous JavaScript and data management.
