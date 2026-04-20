@@ -12,9 +12,9 @@ A collaborative web application designed to help users quickly search and filter
 
 We are **Group [Your Group Number/Name]** on Canvas:
 
-  * **Member 1:** [Name] — *Frontend Logic & Fetch Implementation*
-  * **Member 2:** [Name] — *UI/UX & Filter Architecture*
-  * **Member 3:** [Name] — *Data Management & Documentation*
+  * **Member 1:** Thomas Brakefield — *Frontend Logic & Fetch Implementation*
+  * **Member 2:** Reid Kuhlers — *UI/UX & Filter Architecture*
+  * **Member 3:** Eric Staggs — *Data Management & Documentation*
 
 -----
 
@@ -24,17 +24,17 @@ The goal was to create a centralized hub for keyboard shortcuts, ensuring each e
 
 ### **Core Requirements Met:**
 
-  * **Team Collaboration:** Developed by a self-selected team of 3.
+  * **Team Collaboration:** Thomas Brakefield, Reid Kuhlers, Eric Staggs
   * **Search & Filter:** Real-time filtering system to narrow down shortcuts by name, key combination, or software.
-  * **Asynchronous Data:** Built using the **JavaScript Fetch API** to retrieve and parse JSON data dynamically.
+  * **Asynchronous Data:** Built using the **JavaScript Fetch API** to retrieve and parse JSON data.
   * **Deployment:** Live application hosted and accessible via the link below.
 
 -----
 
 ## 🔗 Submission Links
 
-  * **Live Application:** [Insert Link to Deployed App, e.g., GitHub Pages/Vercel]
-  * **Source Code:** [Link to this GitHub Repository]
+  * **Live Application:** https://tcbrakefield2.github.io/group-project/
+  * **Source Code:** https://github.com/tcbrakefield2/group-project.git
 
 -----
 
@@ -42,19 +42,22 @@ The goal was to create a centralized hub for keyboard shortcuts, ensuring each e
 
 ### **The Fetch API**
 
-To handle the data requirement, we implemented a standard `fetch()` call to pull our unique shortcut library.
+To handle the data requirement, we implemented a custom function "getFilteredData()" call to pull our unique shortcut library.
 
 ```javascript
 // snippet of our data retrieval logic
-const loadShortcuts = async () => {
-    try {
-        const response = await fetch('./data/shortcuts.json');
-        const data = await response.json();
-        renderShortcuts(data);
-    } catch (error) {
-        console.error("Error fetching keyboard data:", error);
-    }
-};
+function getFilteredData() {
+  const base = activeFilter === "all"
+    ? jsObjectData
+    : jsObjectData.filter(item => item.app === activeFilter);
+
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) return base;
+
+  return base.filter(item =>
+    Object.values(item).some(value => String(value).toLowerCase().includes(query))
+  );
+}
 ```
 
 ### **Data Structure**
@@ -79,6 +82,6 @@ Our `shortcuts.json` contains unique entries for every student, structured as fo
 
 ## 📝 Setup Instructions
 
-1.  Clone the repository: `git clone https://github.com/[username]/[repo-name].git`
+1.  Clone the repository: `https://github.com/tcbrakefield2/group-project.git`
 2.  Open `index.html` in your browser (or use Live Server in VS Code).
 3.  Search for any shortcut to see the Fetch API and filtering in action\!
