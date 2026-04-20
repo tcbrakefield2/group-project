@@ -14,7 +14,7 @@ const FOOTER_HTML =
             &copy; 2026 Reid Kuhler, Thomas Brakefield, Eric Staggs 
           </span>
 
-          <a href="https://tcbrakefield2.github.io/group-project/"
+          <a href="https://github.com/tcbrakefield2"
             class="text-decoration-none text-muted border border-secondary-subtle rounded-pill px-3 py-1"
             target="_blank">
             <i class="bi bi-github"></i>
