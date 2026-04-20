@@ -10,7 +10,8 @@ A collaborative web application designed to help users quickly search and filter
 
 ## 👥 The Team
 
-We are **Group [Your Group Number/Name]** on Canvas:
+We are **Group Golf<img width="883" height="587" alt="preview" src="https://github.com/user-attachments/assets/412e9291-523b-49ff-988b-357b87c332f1" />
+** on Canvas:
 
   * **Member 1:** Thomas Brakefield — *Frontend Logic & Fetch Implementation*
   * **Member 2:** Reid Kuhlers — *UI/UX & Filter Architecture*
