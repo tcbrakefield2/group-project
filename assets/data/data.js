@@ -25,8 +25,9 @@ const jsObjectData = [
     { id: 18, app: "System", action: "Backwards On Windows", windows: "Alt + Shift + F", mac: "Command + A", author: "Mitchell Chaffee " },
 
     { id: 19, app: "System", action: "Format Document", windows: "Ctrl + Shift + F", mac: "Command + Option + F", author: "Hassan Alnabres" },
-    { id: 20, app: "System", action: "Open Sign Out Menu", windows: "Alt + Shift + F", mac: "Command + A", author: "Griffen Turner" },
+    { id: 20, app: "System", action: "Open Sign Out Menu", windows: "Alt + Shift + F", mac: "Shift + Command + Q", author: "Griffen Turner" },
     { id: 21, app: "System", action: "Refresh Page", windows: "Ctrl + R", mac: "Command + Option + R", author: "Sean Clary"},
+    
     { id: 22, app: "System", action: "Find in document", windows: "Ctrl + F", mac: "Command + F", author: "Wansheng Wu"},
-    { id: 23, app: "System", action: "Comment code", windows: "Ctrl + /", mac : "Command + /", author: "Shion Kishaba"}
+    { id: 23, app: "System", action: "Comment code", windows: "Ctrl + /", mac : "Command + /", author: "Shion Kishaba"},
 ];

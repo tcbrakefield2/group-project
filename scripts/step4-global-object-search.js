@@ -2,6 +2,22 @@ const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 const searchResults = document.getElementById("searchResults");
 const searchMessage = document.getElementById("searchMessage");
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+let activeFilter = "all";
+
+function getFilteredData() {
+  const base = activeFilter === "all"
+    ? jsObjectData
+    : jsObjectData.filter(item => item.app === activeFilter);
+
+  const query = searchInput.value.trim().toLowerCase();
+  if (!query) return base;
+
+  return base.filter(item =>
+    Object.values(item).some(value => String(value).toLowerCase().includes(query))
+  );
+}
 
 function renderObjectResults(items) {
   searchResults.innerHTML = "";
@@ -16,28 +32,30 @@ function renderObjectResults(items) {
   });
 }
 
-function handleGlobalObjectSearch() {
-  const query = searchInput.value.trim().toLowerCase();
-  if (!query) {
-    renderObjectResults(jsObjectData);
-    searchMessage.textContent = "Type to search all fields";
-    return;
-  }
-  
-  const results = jsObjectData.filter(item => {
-    const values = Object.values(item);
-    return values.some(value => String(value).toLowerCase().includes(query));
-  });
+function handleSearch() {
+  const results = getFilteredData();
   renderObjectResults(results);
-  searchMessage.textContent = results.length ? `Found ${results.length} result(s)` : `No results for: ${query}`;
+  const query = searchInput.value.trim();
+  searchMessage.textContent = query
+    ? `Found ${results.length} result(s)`
+    : `Showing ${results.length} shortcut(s)`;
 }
 
+// Filter button clicks
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    handleSearch();
+  });
+});
+
 // Search as you type
-searchInput.addEventListener("input", handleGlobalObjectSearch);
+searchInput.addEventListener("input", handleSearch);
 
 // Search on button click
-searchButton.addEventListener("click", handleGlobalObjectSearch);
+searchButton.addEventListener("click", handleSearch);
 
 // Initial render
-renderObjectResults(jsObjectData);
-searchMessage.textContent = "Type to search all fields";
+handleSearch();
