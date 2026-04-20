@@ -10,8 +10,7 @@ A collaborative web application designed to help users quickly search and filter
 
 ## 👥 The Team
 
-We are **Group Golf<img width="883" height="587" alt="preview" src="https://github.com/user-attachments/assets/412e9291-523b-49ff-988b-357b87c332f1" />
-** on Canvas:
+We are **Group Golf** on Canvas:
 
   * **Member 1:** Thomas Brakefield — *Frontend Logic & Fetch Implementation*
   * **Member 2:** Reid Kuhlers — *UI/UX & Filter Architecture*
@@ -79,7 +78,7 @@ Our `shortcuts.json` contains unique entries for every student, structured as fo
 -----
 
 ## 📸 Preview
-
+<img width="883" height="587" alt="preview" src="https://github.com/user-attachments/assets/412e9291-523b-49ff-988b-357b87c332f1" />
 -----
 
 ## 📝 Setup Instructions
