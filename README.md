@@ -65,13 +65,14 @@ function getFilteredData() {
 Our `shortcuts.json` contains unique entries for every student, structured as follows:
 
 ```json
-{
-    { id: 23, app: "System", 
+{ 
+    id: 23, app: "System", 
     action: "Comment code", 
     windows: "Ctrl + /", 
     mac: "Command + /", 
-    author: "Shion Kishaba"}
+    author: "Shion Kishaba"
 }
+
 ```
 
 -----
